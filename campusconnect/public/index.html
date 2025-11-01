@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>CampusConnect — Login</title><link rel='stylesheet' href='css/style.css'></head><body>
+<main class='container'><header class='topbar'><h1>CampusConnect</h1></header>
+<section class='card'><h2>Welcome — Sign in</h2><div id='authMessage'></div>
+<label>Email</label><input id='loginEmail' type='email'><label>Password</label><input id='loginPassword' type='password'>
+<button id='loginBtn' class='btn'>Login</button><div class='row small'><a href='register.html'>Create account</a></div></section></main>
+<script type='module'>import { signIn } from './js/auth.js';
+document.getElementById('loginBtn').addEventListener('click',async()=>{const e=document.getElementById('loginEmail').value.trim();
+const p=document.getElementById('loginPassword').value;const m=document.getElementById('authMessage');m.textContent='';
+try{await signIn(e,p);location.href='home.html';}catch(x){m.textContent=x.message||'Login failed';}});
+</script></body></html>
